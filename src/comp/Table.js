@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import "../App.css";
 import { CSVLink } from "react-csv";
 
-
 function Table() {
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState([]);
 
-  
+
   const headers = [
     { label: "Name", key: "name" },
     { label: "Phone", key: "phoneNumber" },
@@ -15,7 +14,6 @@ function Table() {
     { label: "Address", key: "address" }
   ];
 
-  
   const userDataApi = "https://elctro-api.herokuapp.com/api/v1/shop/admin/";
 
   useEffect(() => {
@@ -74,7 +72,19 @@ function Table() {
         <div className="loader" />
       ) : (
         <section className="section">
-          
+          <h2 className="section-title">Data</h2>
+          <div className="section-title">
+            <button className="btn">
+              <CSVLink
+                data={result}
+                headers={headers}
+                filename={`eletcrico_data.csv`}
+              >
+                Download as CSV
+              </CSVLink>
+            </button>
+          </div>
+
           <div className="data-center">
             <table className="data-table">
               <thead>
