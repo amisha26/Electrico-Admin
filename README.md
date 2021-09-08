@@ -1,4 +1,4 @@
-## Currently In Development
+## [Electrico-Admin](https://electrico-admin.netlify.app/) Is Live Now!
 
 
 ## Description
@@ -8,3 +8,14 @@
 * The admin will be logged in until the portal is in active use [ session ].
 * Admin can download the complains details in .csv format.
 * Admin can aslo remove the complains. 
+
+
+## Setup 
+To run this project, install it locally using npm.
+
+```
+$ git clone ...
+$ cd /repo_name
+$ npm install
+$ npm start
+```
