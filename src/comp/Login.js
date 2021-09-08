@@ -77,7 +77,7 @@ const Login = () => {
         />
         <br />
         <button className="btn" type="submit">
-          Login <img src={load} alt="loading.."/>
+          Login <img src={load} alt="loading.." style={{height:'17px',width:'17px',margin:'auto'}}/>
         </button>
       </form>
     </div>
