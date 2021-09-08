@@ -49,7 +49,7 @@ const Login = () => {
 
   // login is successfull
   const success = () => {
-    localStorage.setItem("admin", JSON.stringify(val.username));
+    sessionStorage.setItem("admin", JSON.stringify(val.username));
     history.push("/data");
   };
   return (

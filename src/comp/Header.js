@@ -6,7 +6,7 @@ const Header = () => {
   let history = useHistory();
   const [a, setA] = useState(false);
   const show = () => {
-    const loggedInAdmin = localStorage.getItem("admin");
+    const loggedInAdmin = sessionStorage.getItem("admin");
     if (loggedInAdmin) {
       setA(true);
     }
@@ -15,7 +15,7 @@ const Header = () => {
 
   // logout admin
   const logoutAdmin = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     setA(false);
     history.push("/");
   };
@@ -28,7 +28,7 @@ const Header = () => {
     <nav className="navbar">
       <div className="nav-center">
         <a href="/" id="navbar-text">Electrico Admin Portal</a>
-        {localStorage.getItem("admin") ? (
+        {sessionStorage.getItem("admin") ? (
           <ul
             className="nav-links"
             style={{ cursor: "pointer" }}
