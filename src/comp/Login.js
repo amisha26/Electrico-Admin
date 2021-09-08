@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../App.css";
-import load from "./butload1.gif";
+import load from "./butload.gif";
 
 const Login = () => {
   //const [show, setShow] = useState(true);
