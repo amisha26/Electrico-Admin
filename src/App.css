@@ -212,3 +212,43 @@ Navbar
 .data-table {
   border: 1px;
 }
+
+
+/****************** Login-CSS Start Here ********************/
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 80vh;
+
+}
+
+.login-main {
+  display: flex;
+  flex-direction: column;
+  border: .2rem solid black;
+  padding: 5rem 7rem;
+  box-shadow: 10px 10px #476a2e;
+}
+
+.inpt {
+  background-color: lightgray;
+  outline: none;
+  padding: .6rem 1rem;
+  border: none;
+}
+
+#login-h{
+  color: #476a2e;
+  text-align: center;
+}
+
+
+@media screen and (max-width:460px) {
+  .login-main{
+    width: 100%;
+  }
+}
