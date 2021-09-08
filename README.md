@@ -1,4 +1,4 @@
-## [Electrico-Admin](https://electrico-admin.netlify.app/) Is Live Now!
+## The [Electrico-Admin](https://electrico-admin.netlify.app/) Is Live Now!
 
 
 ## Description
@@ -26,3 +26,16 @@ $ npm start
 * [Nodejs](https://nodejs.org/en/docs/)
 * [MongoDB](https://www.mongodb.com/cloud/atlas/register)
 
+## Project Contributors
+
+* Front-End is done by me - [amisha26](https://github.com/amisha26).
+* Back-End is done by - [gamitej](https://github.com/gamitej).
+
+## Back-End repo 
+
+* [Electrico-Backend](https://github.com/gamitej/Electrico_Backend). 
+
+## Electrico 
+
+* Eletrico-Main [View-Repo](https://github.com/amisha26/Electrico-Main)
+* Electrico Main Website [Demo!](https://the-electrico.netlify.app/)
