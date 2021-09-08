@@ -19,3 +19,10 @@ $ cd /repo_name
 $ npm install
 $ npm start
 ```
+
+## Technologies Used
+
+* [ReactJS](https://reactjs.org/)
+* [Nodejs](https://nodejs.org/en/docs/)
+* [MongoDB](https://www.mongodb.com/cloud/atlas/register)
+
