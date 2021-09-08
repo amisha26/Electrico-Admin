@@ -1,11 +1,19 @@
 import { useState, useEffect } from "react";
 import "../App.css";
+import { CSVLink } from "react-csv";
 
 
 function Table() {
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState([]);
 
+  
+  const headers = [
+    { label: "Name", key: "name" },
+    { label: "Phone", key: "phoneNumber" },
+    { label: "Problem", key: "problem" },
+    { label: "Address", key: "address" }
+  ];
 
   
   const userDataApi = "https://elctro-api.herokuapp.com/api/v1/shop/admin/";
