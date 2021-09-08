@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../App.css";
-import load from './butload.gif';
+import load from "./butload1.gif";
 
 const Login = () => {
   //const [show, setShow] = useState(true);
@@ -28,6 +28,7 @@ const Login = () => {
 
   // user login request
   const adminLog = ({ x }) => {
+    setShowLoader(false);
     fetch(api_admin, {
       method: "POST",
       body: JSON.stringify(x),
@@ -45,13 +46,19 @@ const Login = () => {
   // login is failed
   const fail = ({ json }) => {
     alert(json.message);
+    setShowLoader(true);
   };
 
   // login is successfull
   const success = () => {
     sessionStorage.setItem("admin", JSON.stringify(val.username));
+    setShowLoader(true);
     history.push("/data");
   };
+
+  // login loader
+  const [showLoader, setShowLoader] = useState(true);
+
   return (
     <div className="main">
       <form className="login-main" onSubmit={handleSubmit}>
@@ -76,9 +83,17 @@ const Login = () => {
           value={val.password}
         />
         <br />
-        <button className="btn" type="submit">
-          Login <img src={load} alt="loading.." style={{height:'17px',width:'17px',margin:'auto'}}/>
-        </button>
+        {showLoader ? (
+          <button className="btn" type="submit">
+            Login
+          </button>
+        ) : (
+          <img
+            src={load}
+            alt="loading.."
+            style={{ height: "37px", width: "37px", margin: "auto" }}
+          />
+        )}
       </form>
     </div>
   );
