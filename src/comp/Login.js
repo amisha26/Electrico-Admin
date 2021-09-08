@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../App.css";
-
+import load from './butload.gif';
 
 const Login = () => {
   //const [show, setShow] = useState(true);
@@ -77,7 +77,7 @@ const Login = () => {
         />
         <br />
         <button className="btn" type="submit">
-          Login
+          Login <img src={load} alt="loading.."/>
         </button>
       </form>
     </div>
