@@ -1,6 +1,6 @@
-import "./App.css";
-import Login from "./comp/Login";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./comp/Login";
 import Header from "./comp/Header";
 
 function App() {
