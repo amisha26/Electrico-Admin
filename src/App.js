@@ -1,11 +1,13 @@
-import './App.css';
+import "./App.css";
 import Login from "./comp/Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./comp/Header";
 
 function App() {
   return (
     <Router>
       <div>
+        <Header />
         <Switch>
           <Route exact path="/" component={Login} />
         </Switch>
