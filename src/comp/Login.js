@@ -43,10 +43,12 @@ const Login = () => {
         else fail({ json });
       });
   };
+
+
   // login is failed
   const fail = ({ json }) => {
-    alert(json.message);
     setShowLoader(true);
+    alert(json.message);
   };
 
   // login is successfull

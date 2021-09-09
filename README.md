@@ -1,4 +1,4 @@
-## The [Electrico-Admin](https://electrico-admin.netlify.app/) Is Live Now!
+## [Demo!](https://electrico-admin.netlify.app/)
 
 
 ## Description
