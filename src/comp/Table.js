@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import "../App.css";
 import { CSVLink } from "react-csv";
 
+
 function Table() {
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState([]);
-
 
   const headers = [
     { label: "Name", key: "name" },
     { label: "Phone", key: "phoneNumber" },
     { label: "Problem", key: "problem" },
-    { label: "Address", key: "address" }
+    { label: "Address", key: "address" },
   ];
 
   const userDataApi = "https://elctro-api.herokuapp.com/api/v1/shop/admin/";
@@ -41,11 +41,11 @@ function Table() {
     fetch(`https://elctro-api.herokuapp.com/api/v1/shop/admin/${_id}`, {
       method: "POST",
       body: JSON.stringify({
-        resolved: true
+        resolved: true,
       }),
       headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
+        "Content-type": "application/json; charset=UTF-8",
+      },
     })
       .then((response) => response.json())
       .then((json) => {
@@ -65,80 +65,97 @@ function Table() {
     alert("remove successfully");
   };
 
-
   return (
-    <div className="App"> 
-     { sessionStorage.getItem("admin")  ? <> { loading ? (
-        <div className="loader" />
-      ) : (
-        <section className="section">
-          <h2 className="section-title">Data</h2>
-          <div className="section-title">
-            <button className="btn">
-              <CSVLink
-                data={result}
-                headers={headers}
-                filename={`eletcrico_data.csv`}
-              >
-                Download as CSV
-              </CSVLink>
-            </button>
-          </div>
-
-          <div className="data-center">
-            <table className="data-table">
-              <thead>
-                <th>
-                  <td>Name</td>
-                </th>
-                <th>
-                  <td>Phone-no</td>
-                </th>
-                <th>
-                  <td>Problem</td>
-                </th>
-                <th>
-                  <td>Address</td>
-                </th>
-                <th>
-                  <td>Date</td>
-                </th>
-                <th>
-                  <td>Status</td>
-                </th>
-              </thead>
-              <tbody>
-                {result.map((record) => {
-                  return (
-                    <tr>
-                      <td>{record.name}</td>
-                      <td>{record.phoneNumber}</td>
-                      <td>{record.problem}</td>
-                      <td>{record.address}</td>
-                      <td> {record.createdAt.slice(0, 10).split("-").reverse().join("-")}</td>
-                      <td> <button
-                      style={{
-                        border: "none",
-                        padding: ".5rem 1rem",
-                        background: "red",
-                        color: "whitesmoke",
-                        fontWeight: "600",
-                        cursor: "pointer"
-                      }}
-                      onClick={() => userId(record._id)}
+    <div className="App">
+      <>
+        {sessionStorage.getItem("admin") ? (
+          <>
+            {loading ? (
+              <div className="loader" />
+            ) : (
+              <section className="section">
+                <h2 className="section-title">Data</h2>
+                <div className="section-title">
+                  <button className="btn">
+                    <CSVLink
+                      data={result}
+                      headers={headers}
+                      filename={`eletcrico_data.csv`}
                     >
-                      Remove
-                    </button></td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+                      Download as CSV
+                    </CSVLink>
+                  </button>
+                </div>
+
+                <div className="data-center">
+                  <table className="data-table">
+                    <thead>
+                      <th>
+                        <td>Name</td>
+                      </th>
+                      <th>
+                        <td>Phone-no</td>
+                      </th>
+                      <th>
+                        <td>Problem</td>
+                      </th>
+                      <th>
+                        <td>Address</td>
+                      </th>
+                      <th>
+                        <td>Date</td>
+                      </th>
+                      <th>
+                        <td>Status</td>
+                      </th>
+                    </thead>
+                    <tbody>
+                      {result.map((record) => {
+                        return (
+                          <tr>
+                            <td>{record.name}</td>
+                            <td>{record.phoneNumber}</td>
+                            <td>{record.problem}</td>
+                            <td>{record.address}</td>
+                            <td>
+                              {" "}
+                              {record.createdAt
+                                .slice(0, 10)
+                                .split("-")
+                                .reverse()
+                                .join("-")}
+                            </td>
+                            <td>
+                              {" "}
+                              <button
+                                style={{
+                                  border: "none",
+                                  padding: ".5rem 1rem",
+                                  background: "red",
+                                  color: "whitesmoke",
+                                  fontWeight: "600",
+                                  cursor: "pointer",
+                                }}
+                                onClick={() => userId(record._id)}
+                              >
+                                Remove
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            )}
+          </>
+        ) : (
+          <div className="main">
+            <h2 id="login-h">Please Login</h2>
           </div>
-        </section>
-      )}</> : <div className="main">
-        <h2 id="login-h">Please Login</h2>
-      </div>}
+        )}
+      </>
     </div>
   );
 }
